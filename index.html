@@ -11,23 +11,39 @@
 
 <body>
     <main class="signup-page">
+        
         <div class="image-container">
-            <h1 class="image-header">
+            <h1 class="image-header dark" id="dark">
                 Succumb to the dark side...
+            </h1>
+            <h1 class="image-header light" id="light">
+                May the Force be with you...
             </h1>
         </div>
 
-        
         <form action="" method="">
             <div class="form-container">
-                <h1 class="form-header">
+                <h1 class="form-header dark" id="dark">
                     Learn to use the dark side of the Force !
+                </h1>
+                <h1 class="form-header light" id="light">
+                    Join the light side and become my padawan !
+                </h1>
+                <div class="light-mode">
+                
+                <h1 class="form-container-light dark" id="dark">
+                    or join the light side...
+                </h1>
+                <h1 class="form-container-dark light" id="light">
+                    or join the dark side...
                 </h1>
 
                 <label class="switch">
-                    <input type="checkbox">
+                    <input type="checkbox" id="checkbox">
                     <span class="slider round"></span>
                 </label>
+
+                </div>
 
                 <div class="input-container">
                     <label for="first_name">First Name</label>
@@ -53,7 +69,7 @@
                     <label for="password_confirm">Confirm Password</label>
                     <input type="password" id="password_confirm" required>
                 </div>
-                <button class="submit-button"> i will do whatever you ask...</button>
+                <button class="submit-button">join us</button>
             </div>
         </form>
     </main>

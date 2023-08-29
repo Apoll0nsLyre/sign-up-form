@@ -7,6 +7,9 @@
 
 :root{
     --starwars-font: 'Star Wars';
+    --shadow-black: black 0px 0px 10px;
+    --red-color: rgb(200, 0, 0);
+    --blue-color:rgb(134, 134, 255);
 }
 
 body{
@@ -15,25 +18,42 @@ body{
     background-image: url(co341S.jpg);
     background-size: cover;
     font-size: medium;
+    transition: all .5s ease;
+    -webkit-transition: all .5s ease;
+    -moz-transition: all .5s ease;
 }
 
 .signup-page{
     display: grid;
     grid-template-columns: calc(100% - 60%) auto;
+    
 }
 
 .form-header{
     grid-column: 1/-1;
+    color: black;
     text-align: center;
     margin-top: 20px;
     font-weight: 100;
+    text-shadow: black 0px 0px 8px;
+}
+/* Light mode header */
+.form-header-light{
+    display: none;
+    height: 0;
+    grid-column: 1/-1;
+    color: white;
+    text-align: center;
+    margin-top: 20px;
+    font-weight: 100;
+    text-shadow: white 0px 0px 8px;
 }
 
 .form-container{
     display: grid;
     justify-content: center;
     grid-template-columns: 220px 220px;
-    background: linear-gradient(to right,transparent , rgb(200, 0, 0) 20%) ;
+    background: linear-gradient(to right,transparent , var(--red-color) 20%) ;
     color: white;
     height: 100vh;
     width: 100%;
@@ -44,6 +64,14 @@ body{
     flex-direction: column;
     width: 200px;
     margin: auto;
+    white-space: nowrap;
+
+}
+
+.input-container label{
+    margin-bottom: 5px;
+    font-size: small;
+    text-shadow: var(--shadow-black);
 }
 
 .submit-button {
@@ -58,6 +86,7 @@ body{
     cursor: pointer;
     width: 200px;
     margin: auto ;
+    box-shadow: var(--shadow-black);
 }
 .image-container{
     display: flex;
@@ -69,12 +98,14 @@ body{
 }
 
 .image-header{
+    display: block;
     font-family: var(--starwars-font);
     font-size: 40px;
-    color: rgb(200, 0, 0);
+    color: var(--red-color);
     text-align: center;
     margin-bottom: 20px;
 }
+
 input{
     padding: 10px;
     border: 0px;
@@ -82,8 +113,44 @@ input{
     border-radius: 5px;
     margin-bottom: 10px;
     color: white;
-    background:linear-gradient(to left,rgb(200, 0, 0),black);
+    background:black;
+    text-shadow: var(--shadow-black);
+    box-shadow: var(--shadow-black);
 }
+
+input:focus{
+    outline: none;
+}
+
+/* Light mode */
+
+.light-mode{
+    display: flex;
+    grid-column: 1/-1;
+    flex-direction: row;
+    justify-content: center;
+    text-shadow: white 0px 0px 8px;
+}
+
+#light{
+    color: white;
+    display: none;
+}
+
+#dark{
+    height: auto;
+    display: block;
+}
+
+.form-container-light{
+    font-size: 20px;
+}
+
+.form-container-dark{
+    display: none;
+    font-size: 20px;
+}
+/* Light mode end */
 
 /* switch button code */
 .switch {
