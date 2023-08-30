@@ -1,15 +1,15 @@
 *{
     margin: 0;
     padding: 0;
-    font-family: var(--starwars-font);
-    
+    font-family: var(--starwars-font);  
 }
 
 :root{
     --starwars-font: 'Star Wars';
     --shadow-black: black 0px 0px 10px;
     --red-color: rgb(200, 0, 0);
-    --blue-color:rgb(134, 134, 255);
+    --blue-color:rgb(131, 255, 73);
+    --color-sabrelaser: rgb(200, 0, 0);
 }
 
 body{
@@ -26,21 +26,20 @@ body{
 .signup-page{
     display: grid;
     grid-template-columns: calc(100% - 60%) auto;
-    
 }
 
 .form-header{
+    display: block;
     grid-column: 1/-1;
     color: black;
     text-align: center;
     margin-top: 20px;
     font-weight: 100;
-    text-shadow: black 0px 0px 8px;
+    text-shadow: var(--shadow-black);
 }
 /* Light mode header */
 .form-header-light{
     display: none;
-    height: 0;
     grid-column: 1/-1;
     color: white;
     text-align: center;
@@ -65,13 +64,12 @@ body{
     width: 200px;
     margin: auto;
     white-space: nowrap;
-
+    text-shadow: var(--shadow-black);
 }
 
 .input-container label{
     margin-bottom: 5px;
     font-size: small;
-    text-shadow: var(--shadow-black);
 }
 
 .submit-button {
@@ -104,18 +102,18 @@ body{
     color: var(--red-color);
     text-align: center;
     margin-bottom: 20px;
+    animation: sabrelaser 2s infinite ease-out;
 }
 
 input{
     padding: 10px;
     border: 0px;
     height: 30px;
-    border-radius: 5px;
     margin-bottom: 10px;
     color: white;
-    background:black;
-    text-shadow: var(--shadow-black);
-    box-shadow: var(--shadow-black);
+    background:  transparent;
+    border-bottom: black solid 5px;
+    font-family: 'Roboto', sans-serif;
 }
 
 input:focus{
@@ -140,15 +138,20 @@ input:focus{
 #dark{
     height: auto;
     display: block;
+    
 }
 
 .form-container-light{
     font-size: 20px;
+    color: black;
+    text-shadow: black 0px 0px 8px;
 }
 
 .form-container-dark{
     display: none;
     font-size: 20px;
+    color: black;
+    text-shadow: black 0px 0px 8px;
 }
 /* Light mode end */
 
@@ -210,4 +213,36 @@ input:checked + .slider:before {
 
 .slider.round:before {
     border-radius: 50%;
+}
+
+/* animation */
+
+@keyframes sabrelaser{
+    0%{
+        text-shadow: var(--color-sabrelaser) 0px 0px 10px;
+    }
+    50%{
+        text-shadow: var(--color-sabrelaser) 0px 0px 20px;
+    }
+    100%{
+        text-shadow: var(--color-sabrelaser) 0px 0px 10px;
+    }
+}
+
+@keyframes fade{
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+
+@keyframes fadeout{
+    0%{
+        opacity: 1;
+    }
+    100%{
+        opacity: 0;
+    }
 }
